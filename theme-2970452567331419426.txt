@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<b:include data='blog' name='all-head-content'/>
+    <meta content='حوّل صورك إلى WebP بسهولة! أداة مجانية وسريعة لتحسين أداء موقعك وزيادة سرعة التحميل. تحويل آمن وفعال مع الحفاظ على الجودة.' name='description'/>
+    <meta content='تحويل الصور, WebP, ضغط الصور, تحسين سرعة الموقع, SEO, تحويل JPEG to WebP, تحويل PNG to WebP' name='keywords'/>
+    <meta content='index, follow' name='robots'/>
+    <meta content='عماد الدين لمراني' name='author'/>
+
+    <!-- Open Graph Meta Tags -->
+    <meta content='Webp Hawwel - تحويل الصور إلى WebP' property='og:title'/>
+    <meta content='website' property='og:type'/>
+    <meta content='حوّل صورك إلى WebP بسهولة! أداة مجانية وسريعة لتحسين أداء موقعك' property='og:description'/>
+    <meta content='عماد الدين لمراني' property='og:site_name'/>
+
+    <!-- Twitter Card -->
+    <meta content='summary' name='twitter:card'/>
+    <meta content='@webphawwel' name='twitter:site'/>
+
+    <!-- Favicon -->
+    <link href='https://www.blogger.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+    <!-- Theme Styles -->
+    <style type='text/css'>
+        /* ========== المتغيرات الأساسية ========== */
+        :root {
+            --primary-color: #2c7da0;
+            --secondary-color: #61a5c2;
+            --accent-color: #ffb703;
+            --success-color: #2a9d8f;
+            --text-dark: #2d3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ========== الهيدر ========== */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1rem 5%;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo h1 span {
+            color: var(--accent-color);
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* ========== القائمة ========== */
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        /* ========== المحتوى الرئيسي ========== */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        /* ========== الهيرو ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* ========== صندوق التحويل ========== */
+        .converter-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .converter-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--secondary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+            background: var(--bg-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            border-color: var(--accent-color);
+            background: #e9ecef;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+        }
+
+        .convert-btn {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .convert-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* ========== بطاقات المميزات ========== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ========== الفوتر ========== */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 2rem 5%;
+            margin-top: 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ========== استجابة الجوال ========== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-menu {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== الهيدر ==================== -->
+<header class='header'>
+    <div class='header-container'>
+        <div class='logo'>
+            <h1>Webp <span>Hawwel</span></h1>
+            <p>حوّل صورك بذكاء وسرعة</p>
+        </div>
+        <nav>
+            <ul class='nav-menu'>
+                <li><a href='/'>الرئيسية</a></li>
+                <li><a href='/p/converter.html'>أداة التحويل</a></li>
+                <li><a href='/p/about.html'>من نحن</a></li>
+                <li><a href='/p/contact.html'>اتصل بنا</a></li>
+                <li><a href='/p/blog.html'>المدونة</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ==================== المحتوى الرئيسي ==================== -->
+<main class='main-content'>
+
+    <!-- قسم الهيرو -->
+    <section class='hero'>
+        <h1>حوّل أي صورة إلى WebP مجاناً</h1>
+        <p>ضغّط صورك بنسبة تصل إلى 80% دون فقدان الجودة | تحسين سرعة موقعك وترتيبه في محركات البحث</p>
+    </section>
+
+    <!-- صندوق التحويل الرئيسي -->
+    <section class='converter-card'>
+        <h2>⭐ أداة التحويل الذكية</h2>
+        <p>اسحب وأفلت صورك هنا أو اخترها من جهازك</p>
+        <div class='upload-area'>
+            <div class='upload-icon'>📸</div>
+            <p>انقر لرفع صورة (PNG, JPG, JPEG)</p>
+            <input accept='image/jpeg,image/png,image/jpg' style='display:none' type='file'/>
+        </div>
+        <button class='convert-btn'>🔄 تحويل إلى WebP</button>
+        <p style='margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;'>✔ تحويل سريع وآمن | لا يتم حفظ أي صورة على الخادم</p>
+    </section>
+
+    <!-- بطاقات المميزات -->
+    <div class='features'>
+        <div class='feature-card'>
+            <div class='feature-icon'>⚡</div>
+            <h3>سرعة خارقة</h3>
+            <p>تحويل فوري لصورك بدون انتظار</p>
+        </div>
+        <div class='feature-card'>
+            <div class='feature-icon'>🔒</div>
+            <h3>خصوصية تامة</h3>
+            <p>جميع التحويلات تتم على جهازك، لا يتم رفع أي صورة</p>
+        </div>
+        <div class='feature-card'>
+            <div class='feature-icon'>📊</div>
+            <h3>تحسين SEO</h3>
+            <p>صور WebP تزيد سرعة موقعك وتحسن ترتيبه في جوجل</p>
+        </div>
+        <div class='feature-card'>
+            <div class='feature-icon'>🆓</div>
+            <h3>مجاني 100%</h3>
+            <p>بدون حدود أو تسجيل أو دفع</p>
+        </div>
+    </div>
+
+</main>
+
+<!-- ==================== الفوتر ==================== -->
+<footer class='footer'>
+    <div class='footer-container'>
+        <div class='footer-section'>
+            <h3>Webp Hawwel</h3>
+            <p>أول منصة عربية متخصصة في تحويل الصور إلى صيغة WebP بسهولة وبدون تعقيد.</p>
+        </div>
+        <div class='footer-section'>
+            <h3>روابط سريعة</h3>
+            <p><a href='/p/converter.html'>أداة التحويل</a></p>
+            <p><a href='/p/about.html'>من نحن</a></p>
+            <p><a href='/p/blog.html'>مدونة WebP</a></p>
+        </div>
+        <div class='footer-section'>
+            <h3>عن المالك</h3>
+            <p>تم التطوير والإشراف بواسطة:</p>
+            <p><strong>✨ عماد الدين لمراني ✨</strong></p>
+            <p>خبير تحسين أداء المواقع وسرعة التحميل</p>
+        </div>
+        <div class='footer-section'>
+            <h3>تواصل معنا</h3>
+            <p>📧 <a href='mailto:support@webphawwel.com'>support@webphawwel.com</a></p>
+            <p>📱 تابعنا على وسائل التواصل</p>
+        </div>
+    </div>
+    <div class='copyright'>
+        <p>© 2026 Webp Hawwel | جميع الحقوق محفوظة | تصميم وتطوير: <strong>عماد الدين لمراني</strong></p>
+    </div>
+</footer>
+
+<!-- ==================== سكريبت جافا سكريبت ==================== -->
+<script type='text/javascript'>
+    // تحويل الصور إلى WebP باستخدام JavaScript
+    function convertToWebP(file) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    canvas.toBlob((blob) => {
+                        resolve(blob);
+                    }, 'image/webp', 0.85);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // التعامل مع رفع الملفات
+    const uploadArea = document.querySelector('.upload-area');
+    const fileInput = document.querySelector('input[type="file"]');
+    const convertBtn = document.querySelector('.convert-btn');
+
+    uploadArea.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    convertBtn.addEventListener('click', async () => {
+        const file = fileInput.files[0];
+        if (!file) {
+            alert('الرجاء اختيار صورة أولاً');
+            return;
+        }
+        
+        convertBtn.textContent = '⏳ جاري التحويل...';
+        convertBtn.disabled = true;
+        
+        try {
+            const webpBlob = await convertToWebP(file);
+            const url = URL.createObjectURL(webpBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = file.name.replace(/\.[^/.]+$/, '') + '.webp';
+            a.click();
+            URL.revokeObjectURL(url);
+            convertBtn.textContent = '✅ تم التحويل بنجاح!';
+            setTimeout(() => {
+                convertBtn.textContent = '🔄 تحويل إلى WebP';
+                convertBtn.disabled = false;
+            }, 2000);
+        } catch (error) {
+            alert('حدث خطأ أثناء التحويل');
+            convertBtn.textContent = '🔄 تحويل إلى WebP';
+            convertBtn.disabled = false;
+        }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            convertBtn.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>
+
+</body>
+</html>
